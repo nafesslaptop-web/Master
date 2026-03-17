@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Milan Matka - Official App | Milan Day/Night Matka</title>
+    <meta name="description" content="Milan Matka Official - Play Milan Day, Milan Night, Rajdhani. ₹100 start, instant withdrawal, trusted platform. Download now!" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', 'Helvetica', sans-serif;
+            background: #1c0008;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 25px;
+        }
+
+        /* Hero - Royal Crown Theme */
+
+        header {
+            background: linear-gradient(to bottom, #ff6600, #cc3300, #990000);
+            padding: 100px 0 120px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.15) 0%, transparent 60%);
+            opacity: 0.6;
+            pointer-events: none;
+            /* FIX */
+        }
+
+        .logo-title {
+            font-size: 4.5rem;
+            font-weight: bold;
+            color: #ffd700;
+            text-shadow: 0 0 30px #ff9900, 4px 4px 10px #000;
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+        }
+
+        .subtitle {
+            font-size: 2rem;
+            color: #fff;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 8px #000;
+        }
+
+        .tagline {
+            font-size: 1.4rem;
+            color: #ffeb3b;
+            margin: 30px 0;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: linear-gradient(#ffd700, #ffcc00);
+            color: #b30000;
+            font-size: 1.5rem;
+            font-weight: bold;
+            padding: 18px 60px;
+            border-radius: 60px;
+            margin: 15px;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.5);
+            transition: all 0.4s;
+            border: 3px solid #fff;
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.08);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.7);
+        }
+
+        .btn-secondary {
+            background: #b30000;
+            color: #ffd700;
+            border: 3px solid #ffd700;
+        }
+
+        /* Features - Horizontal scroll on mobile */
+
+        .features {
+            padding: 80px 0;
+            background: #0f0004;
+            text-align: center;
+        }
+
+        .features h2 {
+            color: #ffd700;
+            font-size: 3rem;
+            margin-bottom: 60px;
+            text-shadow: 0 0 15px #ff6600;
+        }
+
+        .feature-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .feature-item {
+            flex: 1;
+            min-width: 280px;
+            max-width: 350px;
+            background: rgba(255, 102, 0, 0.12);
+            padding: 35px 25px;
+            border-radius: 25px;
+            border: 2px dashed #ffd700;
+            transition: all 0.4s;
+        }
+
+        .feature-item:hover {
+            background: rgba(255, 215, 0, 0.15);
+            transform: translateY(-15px);
+        }
+
+        .feature-item h3 {
+            color: #ffeb3b;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .icon {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            color: #ffd700;
+        }
+
+        /* Rates - Elegant boxed style */
+
+        .rates-section {
+            padding: 80px 0;
+            background: linear-gradient(to bottom, #22000a, #000);
+        }
+
+        .rates-section h2 {
+            text-align: center;
+            color: #ffd700;
+            font-size: 3rem;
+            margin-bottom: 50px;
+        }
+
+        .rates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .rate-card {
+            background: #330000;
+            padding: 30px;
+            border-radius: 20px;
+            border: 3px solid #ff9900;
+            text-align: center;
+        }
+
+        .rate-card h3 {
+            color: #ffeb3b;
+            font-size: 1.9rem;
+            margin-bottom: 20px;
+        }
+
+        .rate-value {
+            font-size: 2.2rem;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .note {
+            margin-top: 40px;
+            text-align: center;
+            color: #ffcc00;
+            font-size: 1.3rem;
+        }
+
+        /* Download Final CTA */
+
+        .final-cta {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #ff4500, #b30000);
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            font-size: 3.2rem;
+            color: #ffd700;
+            margin-bottom: 40px;
+        }
+
+        footer {
+            background: #000;
+            padding: 50px 0;
+            text-align: center;
+            color: #aaa;
+            font-size: 1.1rem;
+        }
+
+        .contact-links a {
+            color: #ffd700;
+            margin: 0 20px;
+            font-size: 1.4rem;
+        }
+
+        @media (max-width: 768px) {
+            .logo-title {
+                font-size: 2.2rem;
+            }
+            .subtitle {
+                font-size: 1.6rem;
+            }
+            .feature-list {
+                flex-direction: column;
+                align-items: center;
+            }
+            .btn-primary {
+                padding: 15px 40px;
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+
+    <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('set','autoConfig',false,'1457780132659491');
+fbq('init', '1457780132659491');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1457780132659491&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <h1 class="logo-title">KALYAN MATKA</h1>
+            <p class="subtitle">Official Platform</p>
+            <p class="tagline">Milan Day | KALYAN | Fast Results | Big Wins Daily</p>
+            <a href="https://github.com/nafesslaptop-web/KALYAN/releases/download/klyan/kalyanmatka999.2.apk" class="btn-primary">Download Kalyan APK</a>
+            <!--<a href="https://wa.me/919876543210?text=Hi%20Milan%20Matka" class="btn-primary btn-secondary">Join WhatsApp for Tips</a>-->
+        </div>
+    </header>
+
+    <section class="features">
+        <div class="container">
+            <h2>Why Choose Milan Matka?</h2>
+            <div class="feature-list">
+                <div class="feature-item">
+                    <div class="icon">₹</div>
+                    <h3>₹100 से शुरू</h3>
+                    <p>Low entry, massive winning potential every day</p>
+                </div>
+                <div class="feature-item">
+                    <div class="icon">⚡</div>
+                    <h3>Instant 1-Min Withdrawal</h3>
+                    <p>UPI, Paytm, Bank Transfer – Automatic & Secure</p>
+                </div>
+                <div class="feature-item">
+                    <div class="icon">🏆</div>
+                    <h3>Highest Payouts</h3>
+                    <p>Best rates in Milan Day/Night market</p>
+                </div>
+                <div class="feature-item">
+                    <div class="icon">📊</div>
+                    <h3>Live Fast Results</h3>
+                    <p>Real-time updates & expert guessing</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="final-cta">
+        <div class="container">
+            <h2>Play Milan Matka Today & Win Big!</h2>
+            <a href="https://github.com/nafesslaptop-web/KALYAN/releases/download/klyan/kalyanmatka999.2.apk" class="btn-primary" style="font-size:1.8rem; padding:22px 80px;">Download Official App Now</a>
+            <p style="margin-top:30px; font-size:1.4rem; color:#ffeb3b;">Get Welcome Bonus + Daily Expert Guessing</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p class="contact-links">
+                <a href="https://wa.me/">WhatsApp Support</a> |
+                <a href="https://t.me/milanmatka">Telegram Channel</a>
+            </p>
+            <p>&copy; 2026 Kalyan Matka Official. Play Responsibly.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
