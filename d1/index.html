@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="hi">
+
+<head>
+    <meta charset="utf-8" />
+
+    <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('set','autoConfig',false,'1379855410496486');
+fbq('init', '1379855410496486');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1379855410496486&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Disawer — डाउनलोड</title>
+    <style>
+        :root {
+            --bg: #f3f6f5;
+            --accent: #680000;
+            --muted: #6b7280;
+            --card: #ffffff;
+            --radius: 28px;
+            --maxw: 420px;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%
+        }
+
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+            background: linear-gradient(180deg, var(--bg), #eef4f3 60%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            color: #111827;
+        }
+
+        .phone {
+            width: 100%;
+            max-width: var(--maxw);
+            background: var(--card);
+            border-radius: 36px;
+            box-shadow: 0 30px 60px rgba(2, 6, 23, 0.25);
+            overflow: hidden;
+            padding: 18px 18px 28px;
+            position: relative;
+        }
+
+        .logo-circle {
+            width: 86px;
+            height: 86px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at 30% 20%, #6aa3ff, #0848c2);
+            color: white;
+            font-weight: 700;
+            font-size: 20px;
+            box-shadow: 0 6px 22px rgba(8, 72, 194, 0.28);
+            margin: 14px auto 8px;
+        }
+
+        .logo-circle small {
+            display: block;
+            font-size: 12px;
+            opacity: 0.9;
+            margin-top: 2px
+        }
+
+        .logo-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 50%;
+        }
+
+        h1 {
+            font-size: 28px;
+            text-align: center;
+            margin: 6px 0 6px;
+            letter-spacing: 1px
+        }
+
+        .downloads {
+            font-size: 12px;
+            color: var(--muted);
+            text-align: center;
+            margin-bottom: 12px
+        }
+
+        .subtitle {
+            font-size: 14px;
+            text-align: center;
+            color: var(--muted);
+            margin-bottom: 14px
+        }
+
+        .subtitle b {
+            color: #c22
+        }
+
+        .features {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.8));
+            border-radius: 14px;
+            padding: 12px 14px;
+            margin: 8px 12px 18px;
+            font-size: 15px;
+            line-height: 1.6;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 6px 0
+        }
+
+        .badge {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(2, 6, 23, 0.06)
+        }
+
+        .download-wrap {
+            display: flex;
+            justify-content: center;
+            margin-top: 6px
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            padding: 16px 28px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 18px;
+            box-shadow: 0 10px 30px rgba(11, 99, 255, 0.22);
+            text-decoration: none;
+            width: 86%;
+            max-width: 360px;
+            justify-content: center
+        }
+
+        .small-note {
+            font-size: 13px;
+            color: var(--muted);
+            text-align: center;
+            margin-top: 10px
+        }
+
+        .fomo {
+            margin-top: 20px;
+            text-align: center;
+            font-weight: 700;
+            color: #c22;
+            font-size: 15px;
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink {
+            0%,
+            50%,
+            100% {
+                opacity: 1;
+            }
+            25%,
+            75% {
+                opacity: 0;
+            }
+        }
+
+        @media (max-width:420px) {
+            .logo-circle {
+                width: 74px;
+                height: 74px;
+                font-size: 18px
+            }
+            h1 {
+                font-size: 24px
+            }
+            .download-btn {
+                padding: 14px 18px;
+                font-size: 16px
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="phone" role="main">
+        <div style="height:6px"></div>
+
+        <div class="logo-circle" aria-hidden="true">
+            <img src="https://github.com/nafesslaptop-web/deshawarmtk/releases/download/deshar/des.png" alt="Disawer Logo" />
+        </div>
+
+        <h1>Disawer मटका</h1>
+        <div class="downloads">---- 486K+ डाउनलोड ----</div>
+        <div class="subtitle">भारत का <b>नंबर 1</b> ऑनलाइन <span style="color:#0b63ff;font-weight:700">मटका</span> एप्लिकेशन</div>
+
+        <div class="features" aria-label="features">
+            <div style="font-weight:700;margin-bottom:6px;color:#d23">विशेषताएं :-</div>
+            <div class="feature-item">
+                <div class="badge">📈</div>
+                <div><strong>न्यूनतम जमा</strong> - ₹300</div>
+            </div>
+            <div class="feature-item">
+                <div class="badge">🎯</div>
+                <div><strong>न्यूनतम निकासी</strong> - ₹1,000</div>
+            </div>
+            <div class="feature-item">
+                <div class="badge">💰</div>
+                <div><strong>24/7 स्वचालित निकासी</strong></div>
+            </div>
+            <div class="feature-item">
+                <div class="badge">🔒</div>
+                <div>सुरक्षित और तत्काल जमा / निकासी<br><small style="color:var(--muted)">(100% सत्यापित ऐप)</small></div>
+            </div>
+            <div style="text-align:center;margin-top:8px"><a href="#contact" style="text-decoration:underline;color:#0b63ff;font-weight:700">24×7 ग्राहक सहायता</a></div>
+        </div>
+
+        <div class="download-wrap">
+            <a class="download-btn" href="disawer.apk" role="button" aria-label="ऐप डाउनलोड करें">
+        <span style="display:inline-block;background:rgba(255,255,255,0.12);padding:8px;border-radius:999px">⬇️</span>
+        अभी ऐप डाउनलोड करें
+      </a>
+        </div>
+
+        <div class="fomo">⚡ जल्दी करें! नए उपयोगकर्ताओं के लिए सीमित समय बोनस ⚡</div>
+
+        <div class="small-note">न्यूनतम जमा ₹300 • न्यूनतम निकासी ₹1,000</div>
+    </div>
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"c09484f1ae1c489fa62e50a27099cb5e","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}'
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
