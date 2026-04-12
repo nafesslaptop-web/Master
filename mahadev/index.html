@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pankaj Bhardwaj- Market Intelligence</title>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;600;700;900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --green: #00ff88;
+            --green-dim: #00c466;
+            --red: #ff3355;
+            --red-dim: #cc2244;
+            --blue: #00aaff;
+            --gold: #ffcc00;
+            --bg: #080c10;
+            --bg2: #0d1318;
+            --bg3: #111820;
+            --border: rgba(0, 255, 136, 0.12);
+            --border2: rgba(255, 255, 255, 0.06);
+            --text: #e8eef4;
+            --muted: rgba(232, 238, 244, 0.4);
+            --font-mono: 'Share Tech Mono', monospace;
+            --font-display: 'Orbitron', sans-serif;
+            --font-body: 'DM Sans', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* === SCANLINE OVERLAY === */
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: repeating-linear-gradient( 0deg, transparent, transparent 2px, rgba(0, 0, 0, 0.05) 2px, rgba(0, 0, 0, 0.05) 4px);
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        /* === GRID BG === */
+
+        .grid-bg {
+            position: fixed;
+            inset: 0;
+            background-image: linear-gradient(rgba(0, 255, 136, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 255, 136, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: 0;
+        }
+
+        /* === TICKER TAPE === */
+
+        .ticker-wrap {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 32px;
+            background: #0a1208;
+            border-bottom: 1px solid var(--border);
+            overflow: hidden;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+        }
+
+        .ticker-inner {
+            display: flex;
+            gap: 0;
+            animation: ticker-scroll 30s linear infinite;
+            white-space: nowrap;
+        }
+
+        .ticker-item {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            padding: 0 20px;
+            border-right: 1px solid rgba(0, 255, 136, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .ticker-sym {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .ticker-val {
+            color: var(--green);
+        }
+
+        .ticker-val.down {
+            color: var(--red);
+        }
+
+        .ticker-chg {
+            font-size: 10px;
+            opacity: 0.7;
+        }
+
+        @keyframes ticker-scroll {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* === BOTTOM STATUS BAR === */
+
+        .status-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 24px;
+            background: #0a1208;
+            border-top: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 16px;
+            z-index: 100;
+        }
+
+        .status-bar span {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--muted);
+        }
+
+        .status-bar .online {
+            color: var(--green);
+        }
+
+        /* === CANDLE CHART BG === */
+
+        .chart-bg {
+            position: fixed;
+            bottom: 24px;
+            left: 0;
+            right: 0;
+            height: 200px;
+            z-index: 0;
+            opacity: 0.12;
+            pointer-events: none;
+        }
+
+        /* === MAIN LAYOUT === */
+
+        .main {
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+            padding: 52px 16px 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 440px;
+        }
+
+        /* === PANEL === */
+
+        .panel {
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .panel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--green), var(--blue), var(--green));
+            background-size: 200% 100%;
+            animation: gradient-shift 3s linear infinite;
+        }
+
+        @keyframes gradient-shift {
+            from {
+                background-position: 0% 0%;
+            }
+            to {
+                background-position: 200% 0%;
+            }
+        }
+
+        /* === PANEL HEADER === */
+
+        .panel-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 14px;
+            background: #0a1510;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .panel-title {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--green);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .panel-controls {
+            display: flex;
+            gap: 6px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .dot-r {
+            background: var(--red);
+        }
+
+        .dot-y {
+            background: var(--gold);
+        }
+
+        .dot-g {
+            background: var(--green);
+        }
+
+        /* === PROFILE BLOCK === */
+
+        .profile-block {
+            padding: 20px;
+            border-bottom: 1px solid var(--border2);
+        }
+
+        .profile-inner {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .avatar {
+            width: 72px;
+            height: 72px;
+            border-radius: 4px;
+            border: 1px solid var(--green);
+            overflow: hidden;
+            flex-shrink: 0;
+            position: relative;
+            background: #0a1510;
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.15), inset 0 0 20px rgba(0, 255, 136, 0.05);
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .avatar-corner {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 16px;
+            height: 16px;
+            border-top: 1px solid var(--green);
+            border-left: 1px solid var(--green);
+        }
+
+        .profile-meta {
+            flex: 1;
+        }
+
+        .trader-name {
+            font-family: var(--font-display);
+            font-size: 18px;
+            font-weight: 900;
+            color: var(--text);
+            letter-spacing: 2px;
+            line-height: 1.1;
+            margin-bottom: 4px;
+        }
+
+        .trader-name span {
+            color: var(--green);
+        }
+
+        .trader-sub {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--muted);
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .tag-row {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            font-family: var(--font-mono);
+            font-size: 9px;
+            padding: 3px 8px;
+            border-radius: 2px;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        .tag-green {
+            background: rgba(0, 255, 136, 0.1);
+            color: var(--green);
+            border: 1px solid rgba(0, 255, 136, 0.2);
+        }
+
+        .tag-blue {
+            background: rgba(0, 170, 255, 0.1);
+            color: var(--blue);
+            border: 1px solid rgba(0, 170, 255, 0.2);
+        }
+
+        .tag-red {
+            background: rgba(255, 51, 85, 0.1);
+            color: var(--red);
+            border: 1px solid rgba(255, 51, 85, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .blink-dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--red);
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%,
+            100% {
+                opacity: 1
+            }
+            50% {
+                opacity: 0
+            }
+        }
+
+        /* === STATS ROW === */
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            border-bottom: 1px solid var(--border2);
+        }
+
+        .stat-cell {
+            padding: 12px;
+            text-align: center;
+            border-right: 1px solid var(--border2);
+            position: relative;
+        }
+
+        .stat-cell:last-child {
+            border-right: none;
+        }
+
+        .stat-val {
+            font-family: var(--font-mono);
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--green);
+            line-height: 1;
+            margin-bottom: 3px;
+        }
+
+        .stat-val.red {
+            color: var(--red);
+        }
+
+        .stat-val.gold {
+            color: var(--gold);
+        }
+
+        .stat-label {
+            font-family: var(--font-mono);
+            font-size: 9px;
+            color: var(--muted);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* === MINI CHART === */
+
+        .chart-section {
+            padding: 14px;
+            border-bottom: 1px solid var(--border2);
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .chart-label {
+            font-family: var(--font-mono);
+            font-size: 9px;
+            color: var(--muted);
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .chart-label .up {
+            color: var(--green);
+        }
+
+        .candle-chart {
+            display: flex;
+            align-items: flex-end;
+            gap: 3px;
+            height: 60px;
+        }
+
+        .candle {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+            position: relative;
+        }
+
+        .wick {
+            width: 1px;
+            background: currentColor;
+            opacity: 0.5;
+        }
+
+        .body {
+            width: 70%;
+            border-radius: 1px;
+        }
+
+        .candle.bull {
+            color: var(--green);
+        }
+
+        .candle.bear {
+            color: var(--red);
+        }
+
+        .candle.bull .body {
+            background: var(--green);
+        }
+
+        .candle.bear .body {
+            background: var(--red);
+        }
+
+        /* === FEATURES === */
+
+        .features {
+            padding: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            border-bottom: 1px solid var(--border2);
+        }
+
+        .feat-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 12px;
+            background: var(--bg3);
+            border: 1px solid var(--border2);
+            border-radius: 3px;
+            transition: all 0.2s;
+            cursor: default;
+        }
+
+        .feat-row:hover {
+            border-color: rgba(0, 255, 136, 0.25);
+            background: rgba(0, 255, 136, 0.04);
+            transform: translateX(2px);
+        }
+
+        .feat-icon {
+            width: 36px;
+            height: 36px;
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 255, 136, 0.06);
+            flex-shrink: 0;
+            font-size: 16px;
+        }
+
+        .feat-text p {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 1px;
+            letter-spacing: 0.3px;
+        }
+
+        .feat-text span {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--muted);
+        }
+
+        .feat-arrow {
+            margin-left: auto;
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: rgba(0, 255, 136, 0.3);
+        }
+
+        /* === CTA === */
+
+        .cta-block {
+            padding: 14px;
+        }
+
+        .cta-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 16px;
+            background: transparent;
+            border: 1px solid var(--green);
+            border-radius: 3px;
+            color: var(--green);
+            font-family: var(--font-display);
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-decoration: none;
+            text-transform: uppercase;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .cta-btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--green);
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+            z-index: 0;
+        }
+
+        .cta-btn:hover::before {
+            transform: translateX(0);
+        }
+
+        .cta-btn:hover {
+            color: #000;
+            box-shadow: 0 0 30px rgba(0, 255, 136, 0.3);
+        }
+
+        .cta-btn span,
+        .cta-btn svg {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-btn .cmd-prefix {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            opacity: 0.6;
+        }
+
+        .text-10 {
+            font-size: 10px;
+        }
+
+        /* === FOOTER === */
+
+        .footer-bar {
+            padding: 10px 14px;
+            background: #060a08;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-bar p {
+            font-family: var(--font-mono);
+            font-size: 9px;
+            color: rgba(255, 255, 255, 0.2);
+        }
+
+        .footer-bar .credit {
+            color: rgba(0, 255, 136, 0.4);
+        }
+
+        /* === PRICE FLASH === */
+
+        .price-flash {
+            position: absolute;
+            top: 8px;
+            right: 14px;
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--green);
+            animation: flash 2s infinite;
+        }
+
+        @keyframes flash {
+            0%,
+            100% {
+                opacity: 1
+            }
+            50% {
+                opacity: 0.3
+            }
+        }
+
+        /* Entrance animations */
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .a1 {
+            animation: fadeUp 0.5s 0.0s both;
+        }
+
+        .a2 {
+            animation: fadeUp 0.5s 0.1s both;
+        }
+
+        .a3 {
+            animation: fadeUp 0.5s 0.2s both;
+        }
+
+        .a4 {
+            animation: fadeUp 0.5s 0.3s both;
+        }
+
+        .a5 {
+            animation: fadeUp 0.5s 0.4s both;
+        }
+
+        @media (max-width: 480px) {
+            .trader-name {
+                font-size: 16px;
+            }
+            .stat-val {
+                font-size: 15px;
+            }
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <div class="grid-bg"></div>
+
+    <!-- TICKER TAPE -->
+    <div class="ticker-wrap">
+        <div class="ticker-inner" id="ticker"></div>
+    </div>
+
+    <!-- CHART BACKGROUND SVG -->
+    <svg class="chart-bg" viewBox="0 0 800 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+  <polyline points="0,150 50,130 100,145 150,90 200,110 250,70 300,85 350,50 400,65 450,40 500,60 550,30 600,50 650,20 700,35 750,15 800,25"
+    fill="none" stroke="#00ff88" stroke-width="1.5"/>
+  <polyline points="0,150 50,130 100,145 150,90 200,110 250,70 300,85 350,50 400,65 450,40 500,60 550,30 600,50 650,20 700,35 750,15 800,25 800,200 0,200"
+    fill="url(#chartGrad)" stroke="none"/>
+  <defs>
+    <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#00ff88" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#00ff88" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+</svg>
+
+    <!-- MAIN -->
+    <div class="main">
+        <div class="container">
+
+            <!-- PANEL -->
+            <div class="panel a1">
+                <div class="panel-header">
+                    <span class="panel-title">PANKAJ BHARDWAJ OFFICIAL // TERMINAL</span>
+                    <div class="panel-controls">
+                        <div class="dot dot-r"></div>
+                        <div class="dot dot-y"></div>
+                        <div class="dot dot-g"></div>
+                    </div>
+                </div>
+
+                <!-- PROFILE -->
+                <div class="profile-block a2">
+                    <div class="profile-inner">
+                        <div class="avatar">
+                            <img src="https://mahadevads.pages.dev/pnk.jpg" alt="Radhika Trader" onerror="this.style.display='none'" />
+                            <div class="avatar-corner"></div>
+                        </div>
+                        <div class="profile-meta">
+                            <div class="trader-name">PANKAJ <br/><span>BHARDWAJ</span></div>
+                            <div class="trader-sub">MARKET INTELLIGENCE SYSTEM v2.4</div>
+                            <div class="tag-row">
+                                <span class="tag tag-green">⭐ PREMIUM</span>
+                                <span class="tag tag-red"><span class="blink-dot"></span>LIVE</span>
+                                <span class="tag tag-blue">100K+ MEMBERS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STATS -->
+                <div class="stats-row a3">
+                    <div class="stat-cell">
+                        <div class="stat-val">98.2%</div>
+                        <div class="stat-label">Accuracy</div>
+                    </div>
+                    <div class="stat-cell">
+                        <div class="stat-val gold">100K+</div>
+                        <div class="stat-label">Members</div>
+                    </div>
+                    <div class="stat-cell">
+                        <div class="stat-val">24/7</div>
+                        <div class="stat-label">Live Feed</div>
+                    </div>
+                </div>
+
+                <!-- MINI CANDLE CHART -->
+                <div class="chart-section a3">
+                    <div class="chart-label">
+                        <span>// SIGNAL HISTORY</span>
+                        <span class="up">▲ +12.4% TODAY</span>
+                    </div>
+                    <div class="candle-chart" id="candleChart"></div>
+                </div>
+
+                <!-- FEATURES -->
+                <div class="features a4">
+                    <div class="feat-row">
+                        <div class="feat-icon">📊</div>
+                        <div class="feat-text">
+                            <p>Expert Analysis</p>
+                            <span>PROFESSIONAL MARKET INSIGHTS</span>
+                        </div>
+                        <span class="feat-arrow">▶</span>
+                    </div>
+                    <div class="feat-row">
+                        <div class="feat-icon">⚡</div>
+                        <div class="feat-text">
+                            <p>Real-time Signals</p>
+                            <span>LIVE MARKET UPDATES & TRENDS</span>
+                        </div>
+                        <span class="feat-arrow">▶</span>
+                    </div>
+                    <div class="feat-row">
+                        <div class="feat-icon">🎯</div>
+                        <div class="feat-text">
+                            <p>Education Circle</p>
+                            <span>CONNECT WITH SAVVY TRADERS</span>
+                        </div>
+                        <span class="feat-arrow">▶</span>
+                    </div>
+                </div>
+
+                <!-- CTA -->
+                <div class="cta-block a5">
+                    <a href="" target="_blank" class="cta-btn">
+          <span class="cmd-prefix">$&nbsp;</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0a12 12 0 00-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.96 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+          <span   class="text-10">JOIN FREE TELEGRAM CHANNEL</span>
+        </a>
+                </div>
+
+                <!-- FOOTER -->
+                <div class="footer-bar">
+                    <p>FOR EDUCATIONAL PURPOSES ONLY</p>
+                    <p class="credit">ADV BY MAHADEVMARKETING</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- BOTTOM STATUS BAR -->
+    <div class="status-bar">
+        <span>SYS: ONLINE <span class="online">●</span></span>
+        <span id="clock"></span>
+        <span>NIFTY: <span class="online" id="nifty">22,450.35 ▲</span></span>
+    </div>
+
+    <script>
+        // === TICKER DATA ===
+        const tickers = [{
+                sym: 'NIFTY',
+                val: '22,450.35',
+                chg: '+1.2%',
+                up: true
+            },
+            {
+                sym: 'SENSEX',
+                val: '73,852.10',
+                chg: '+0.9%',
+                up: true
+            },
+            {
+                sym: 'BANKNIFTY',
+                val: '48,620.50',
+                chg: '+1.8%',
+                up: true
+            },
+            {
+                sym: 'RELIANCE',
+                val: '2,940.15',
+                chg: '-0.3%',
+                up: false
+            },
+            {
+                sym: 'TCS',
+                val: '4,102.80',
+                chg: '+0.6%',
+                up: true
+            },
+            {
+                sym: 'HDFC',
+                val: '1,680.40',
+                chg: '+2.1%',
+                up: true
+            },
+            {
+                sym: 'ITC',
+                val: '468.20',
+                chg: '+0.4%',
+                up: true
+            },
+            {
+                sym: 'INFY',
+                val: '1,892.35',
+                chg: '-0.7%',
+                up: false
+            },
+            {
+                sym: 'NIFTY',
+                val: '22,450.35',
+                chg: '+1.2%',
+                up: true
+            },
+            {
+                sym: 'SENSEX',
+                val: '73,852.10',
+                chg: '+0.9%',
+                up: true
+            },
+            {
+                sym: 'BANKNIFTY',
+                val: '48,620.50',
+                chg: '+1.8%',
+                up: true
+            },
+            {
+                sym: 'RELIANCE',
+                val: '2,940.15',
+                chg: '-0.3%',
+                up: false
+            },
+            {
+                sym: 'TCS',
+                val: '4,102.80',
+                chg: '+0.6%',
+                up: true
+            },
+            {
+                sym: 'HDFC',
+                val: '1,680.40',
+                chg: '+2.1%',
+                up: true
+            },
+            {
+                sym: 'ITC',
+                val: '468.20',
+                chg: '+0.4%',
+                up: true
+            },
+            {
+                sym: 'INFY',
+                val: '1,892.35',
+                chg: '-0.7%',
+                up: false
+            },
+        ];
+
+        const tickerEl = document.getElementById('ticker');
+        const html = tickers.map(t => `
+  <div class="ticker-item">
+    <span class="ticker-sym">${t.sym}</span>
+    <span class="ticker-val ${t.up?'':'down'}">${t.val}</span>
+    <span class="ticker-chg">${t.chg}</span>
+  </div>
+`).join('');
+        tickerEl.innerHTML = html + html;
+
+        // === CANDLE CHART ===
+        const candles = [{
+                bull: false,
+                wickH: 8,
+                bodyH: 14,
+                wickL: 5
+            },
+            {
+                bull: true,
+                wickH: 6,
+                bodyH: 20,
+                wickL: 4
+            },
+            {
+                bull: true,
+                wickH: 10,
+                bodyH: 16,
+                wickL: 6
+            },
+            {
+                bull: false,
+                wickH: 5,
+                bodyH: 12,
+                wickL: 8
+            },
+            {
+                bull: true,
+                wickH: 8,
+                bodyH: 22,
+                wickL: 5
+            },
+            {
+                bull: true,
+                wickH: 12,
+                bodyH: 18,
+                wickL: 3
+            },
+            {
+                bull: false,
+                wickH: 7,
+                bodyH: 10,
+                wickL: 9
+            },
+            {
+                bull: true,
+                wickH: 9,
+                bodyH: 26,
+                wickL: 4
+            },
+            {
+                bull: true,
+                wickH: 6,
+                bodyH: 20,
+                wickL: 5
+            },
+            {
+                bull: true,
+                wickH: 11,
+                bodyH: 28,
+                wickL: 6
+            },
+            {
+                bull: false,
+                wickH: 8,
+                bodyH: 12,
+                wickL: 7
+            },
+            {
+                bull: true,
+                wickH: 5,
+                bodyH: 32,
+                wickL: 3
+            },
+            {
+                bull: true,
+                wickH: 10,
+                bodyH: 24,
+                wickL: 4
+            },
+            {
+                bull: true,
+                wickH: 7,
+                bodyH: 30,
+                wickL: 5
+            },
+            {
+                bull: false,
+                wickH: 9,
+                bodyH: 14,
+                wickL: 6
+            },
+            {
+                bull: true,
+                wickH: 6,
+                bodyH: 36,
+                wickL: 4
+            },
+        ];
+
+        const chartEl = document.getElementById('candleChart');
+        chartEl.innerHTML = candles.map(c => `
+  <div class="candle ${c.bull ? 'bull' : 'bear'}">
+    <div class="wick" style="height:${c.wickH}px"></div>
+    <div class="body" style="height:${c.bodyH}px"></div>
+    <div class="wick" style="height:${c.wickL}px"></div>
+  </div>
+`).join('');
+
+        // === CLOCK ===
+        function updateClock() {
+            const now = new Date();
+            document.getElementById('clock').textContent =
+                now.toLocaleTimeString('en-IN', {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit'
+                });
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // === NIFTY FLASH ===
+        const niftyValues = ['22,450.35 ▲', '22,451.80 ▲', '22,449.10 ▲', '22,452.60 ▲'];
+        let ni = 0;
+        setInterval(() => {
+            ni = (ni + 1) % niftyValues.length;
+            document.getElementById('nifty').textContent = niftyValues[ni];
+        }, 2000);
+    </script>
+
+</body>
+
+</html>
