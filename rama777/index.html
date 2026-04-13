@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DPBOSS - Premium Matka Experience</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Russo+One&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FFCC00;
+            /* DPBOSS Gold */
+            --secondary: #DC143C;
+            /* DPBOSS Crimson Red */
+            --dark: #0a0a0a;
+            --darker: #000000;
+            --light: #FFFFFF;
+            --gray: #A0A0A0;
+            --card-bg: #141414;
+            --gradient-gold: linear-gradient(135deg, #FFDF00, #D4AF37, #B8860B);
+            --gradient-red: linear-gradient(135deg, #FF0000, #8B0000);
+            --border-gold: 1px solid #FFCC00;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        body {
+            background: var(--darker);
+            color: var(--light);
+            overflow-x: hidden;
+            background-image: radial-gradient(circle at 15% 50%, rgba(220, 20, 60, 0.15), transparent 25%), radial-gradient(circle at 85% 30%, rgba(255, 204, 0, 0.15), transparent 25%);
+        }
+
+        /* ===== DPBOSS TOP MARQUEE ===== */
+
+        .top-marquee {
+            background: var(--secondary);
+            color: var(--light);
+            padding: 8px 0;
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 1px;
+            border-bottom: 2px solid var(--primary);
+            box-shadow: 0 2px 10px rgba(255, 0, 0, 0.5);
+            position: relative;
+            z-index: 1001;
+        }
+
+        .top-marquee span {
+            color: var(--primary);
+        }
+
+        /* ===== HEADER ===== */
+
+        header {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: var(--border-gold);
+            padding: 15px 0;
+            transition: all 0.4s ease;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Russo One', sans-serif;
+            font-size: 2rem;
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            filter: drop-shadow(0 0 5px rgba(255, 204, 0, 0.3));
+        }
+
+        .download-btn {
+            background: var(--gradient-red);
+            color: var(--light);
+            padding: 10px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 800;
+            text-transform: uppercase;
+            border: 1px solid #FF0000;
+            box-shadow: 0 0 15px rgba(220, 20, 60, 0.5);
+            transition: 0.3s;
+        }
+
+        .download-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(220, 20, 60, 0.8);
+            color: #fff;
+        }
+
+        /* ===== HERO SECTION ===== */
+
+        .hero {
+            padding: 60px 0 40px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: 'Russo One', sans-serif;
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: var(--light);
+            text-transform: uppercase;
+        }
+
+        .hero h1 span {
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ===== LIVE RESULTS (Classic DPBOSS Feature) ===== */
+
+        .live-results {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+        }
+
+        .result-box {
+            background: linear-gradient(180deg, #1a0000, #000000);
+            border: 2px solid var(--secondary);
+            border-radius: 10px;
+            padding: 20px 30px;
+            text-align: center;
+            min-width: 280px;
+            box-shadow: 0 10px 20px rgba(220, 20, 60, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .result-box::before {
+            content: 'LIVE';
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            color: #00ff00;
+            font-weight: bold;
+            font-size: 12px;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%,
+            100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .result-name {
+            font-size: 18px;
+            color: var(--primary);
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .result-number {
+            font-family: 'Russo One', sans-serif;
+            font-size: 36px;
+            color: #fff;
+            letter-spacing: 3px;
+        }
+
+        /* ===== TOP WITHDRAWAL PANEL (VIP DESIGN) ===== */
+
+        .top-withdraw-panel {
+            background: linear-gradient(145deg, #0a0a0a, #1a1a1a);
+            border: 1px solid #00ff88;
+            border-radius: 15px;
+            padding: 20px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.15);
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .withdraw-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .withdraw-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 255, 136, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: #00ff88;
+            border: 1px solid #00ff88;
+            animation: bounce 2s infinite;
+        }
+
+        .withdraw-text h2 {
+            font-family: 'Russo One', sans-serif;
+            font-size: 20px;
+            margin: 0;
+            color: #fff;
+            letter-spacing: 1px;
+        }
+
+        .withdraw-text p {
+            margin: 5px 0 0;
+            font-size: 13px;
+            color: #00ff88;
+            font-weight: 600;
+        }
+
+        .withdraw-button {
+            background: #00ff88;
+            color: #000;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-weight: 800;
+            font-size: 14px;
+            text-transform: uppercase;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 0 15px rgba(0, 255, 136, 0.4);
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .withdraw-button:hover {
+            transform: scale(1.05);
+            background: #fff;
+            color: #000;
+        }
+
+        /* ===== GAME RATES GRID ===== */
+
+        .section-title {
+            text-align: center;
+            font-family: 'Russo One', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: var(--light);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section-title span {
+            color: var(--primary);
+        }
+
+        .rate-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .rate-card {
+            background: var(--card-bg);
+            border: 1px solid #333;
+            border-bottom: 3px solid var(--primary);
+            border-radius: 12px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: 0.4s;
+            position: relative;
+        }
+
+        .rate-card:hover {
+            border-color: var(--primary);
+            background: linear-gradient(to top, #261a00, #141414);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 204, 0, 0.15);
+        }
+
+        .rate-label {
+            font-size: 14px;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            display: block;
+            font-weight: 600;
+        }
+
+        .rate-value {
+            font-family: 'Russo One', sans-serif;
+            font-size: 32px;
+            color: var(--light);
+            margin-bottom: 5px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .green-t {
+            color: #00ff88;
+        }
+
+        .gold-t {
+            color: var(--primary);
+        }
+
+        .rate-desc {
+            font-size: 12px;
+            color: #777;
+            font-weight: 500;
+        }
+
+        /* Jackpot Special Card */
+
+        .jackpot-card {
+            border: 2px solid var(--secondary);
+            background: linear-gradient(145deg, #1a0000, #330000);
+            border-bottom: 4px solid var(--primary);
+        }
+
+        .jackpot-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: #000;
+            padding: 4px 20px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 1px;
+            box-shadow: 0 0 10px var(--primary);
+        }
+
+        /* ===== STEPS & FEATURES ===== */
+
+        .steps-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 60px;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 220px;
+            text-align: center;
+            background: #111;
+            padding: 30px 20px;
+            border-radius: 12px;
+            border: 1px solid #222;
+            position: relative;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: #fff;
+            border: 3px solid #000;
+            outline: 2px solid var(--primary);
+        }
+
+        .step h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+        }
+
+        .step p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* ===== FOOTER ===== */
+
+        footer {
+            background: #050505;
+            padding: 50px 0 20px;
+            border-top: 2px solid var(--secondary);
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Russo One', sans-serif;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: #1a1a1a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            text-decoration: none;
+            transition: 0.3s;
+            border: 1px solid #333;
+            font-size: 1.2rem;
+        }
+
+        .social-link:hover {
+            background: var(--secondary);
+            color: #fff;
+            border-color: var(--secondary);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            color: #666;
+            font-size: 0.9rem;
+            border-top: 1px solid #222;
+            padding-top: 20px;
+        }
+
+        /* Floating App Button */
+
+        .fab {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--gradient-red);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.5rem;
+            text-decoration: none;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+            z-index: 1000;
+            border: 2px solid var(--primary);
+            animation: pulse 2s infinite;
+        }
+
+        /* ===== RESPONSIVE ===== */
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .top-withdraw-panel {
+                flex-direction: column;
+                text-align: center;
+            }
+            .withdraw-info {
+                flex-direction: column;
+            }
+            .result-box {
+                width: 100%;
+            }
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <div class="top-marquee">
+        <marquee scrollamount="5">
+            ⭐ WELCOME TO RAMA777 GROUP ⭐ INDIA'S NO.1 FASTEST MATKA RESULT APP ⭐ KALYAN - MAIN BAZAR - MILAN - RAJDHANI - TIME BAZAR ⭐ <span>PLAY BINDAS, WIN BIG! 100% TRUSTED & SECURE</span> ⭐ INSTANT WITHDRAWAL 24/7 ⭐ </marquee>
+    </div>
+
+    <header id="header">
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fas fa-crown" style="color: var(--primary);"></i> RAMA777
+            </div>
+            <a href="https://mahadevads.pages.dev/app-Rama777.apk" class="download-btn">
+                <i class="fas fa-download mr-1"></i> App
+            </a>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>India's No.1 <span>Matka App</span></h1>
+            <p>Experience the fastest live results, highest game rates, and 100% secure instant withdrawals. Join the Swastik Group family today.</p>
+
+            <div class="top-withdraw-panel">
+                <div class="withdraw-info">
+                    <div class="withdraw-icon"><i class="fas fa-rupee-sign"></i></div>
+                    <div class="withdraw-text text-md-left text-center">
+                        <h2>INSTANT WITHDRAWALS</h2>
+                        <p><span style="width: 8px; height: 8px; background: #00ff88; display: inline-block; border-radius: 50%; box-shadow: 0 0 10px #00ff88; animation: blink 1s infinite;"></span> LIVE 24/7 • NO HOLIDAYS - ONLY PLAY & WIN</p>
+                    </div>
+                </div>
+                <a href="https://mahadevads.pages.dev/app-Rama777.apk" class="withdraw-button"><i class="fas fa-download"></i> DOWNLOAD NOW</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="container mb-5" id="rates">
+        <h2 class="section-title">PREMIUM <span>GAME RATES</span></h2>
+
+        <div class="rate-grid">
+            <div class="rate-card">
+                <span class="rate-label">Single Digit</span>
+                <div class="rate-value green-t">10 KA 97</div>
+                <p class="rate-desc">Instant Cashout Available</p>
+            </div>
+
+            <div class="rate-card">
+                <span class="rate-label">Jodi Digit</span>
+                <div class="rate-value green-t">10 KA 970</div>
+                <p class="rate-desc">Best Payout in Market</p>
+            </div>
+
+            <div class="rate-card">
+                <span class="rate-label">Single Pana</span>
+                <div class="rate-value green-t">10 KA 1530</div>
+                <p class="rate-desc">High Winning Probability</p>
+            </div>
+
+            <div class="rate-card">
+                <span class="rate-label">Double Pana</span>
+                <div class="rate-value gold-t">10 KA 3060</div>
+                <p class="rate-desc">Pro Player Choice</p>
+            </div>
+
+            <div class="rate-card">
+                <span class="rate-label">Triple Pana</span>
+                <div class="rate-value gold-t">10 KA 6000</div>
+                <p class="rate-desc">Big Multiplier Win</p>
+            </div>
+
+            <div class="rate-card jackpot-card">
+                <div class="jackpot-badge">JACKPOT</div>
+                <span class="rate-label" style="color:#FFCC00;">Full Sangam</span>
+                <div class="rate-value gold-t">10 KA 1.2L</div>
+                <p class="rate-desc" style="color:#aaa;">The Ultimate Life-Changer</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="container" id="steps">
+        <h2 class="section-title">START IN <span>3 STEPS</span></h2>
+
+        <div class="steps-container">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Download App</h3>
+                <p>Get our secure APK file directly from here and install it.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Create Account</h3>
+                <p>Register with your mobile number safely in 30 seconds.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Add Funds & Play</h3>
+                <p>Deposit via PhonePe/Gpay and start winning real cash.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-logo">RAMA777 GROUP</div>
+            <p style="color: #888; max-width: 600px; margin: 0 auto 30px;">India's Most Trusted & Genuine Matka App. Experience superfast results, high security, and 24x7 customer support.</p>
+
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-telegram-plane"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2026 RAMA777 Group Official. All Rights Reserved.</p>
+                <p style="margin-top: 5px; font-size: 0.8rem; color: #555;">Play Responsibly. Must be 18+ to participate.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://mahadevads.pages.dev/app-Rama777.apk" class="fab">
+        <i class="fas fa-download"></i>
+    </a>
+
+</body>
+
+</html>
