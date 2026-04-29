@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stock Market Learning Hub</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+/* BACKGROUND ANIMATION */
+body{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(270deg,#0f2027,#203a43,#2c5364);
+  background-size:600% 600%;
+  animation:gradientBG 10s ease infinite;
+}
+
+@keyframes gradientBG{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+/* MAIN CARD */
+.container{
+  width:95%;
+  max-width:420px;
+  padding:25px;
+  border-radius:25px;
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(25px);
+  box-shadow:0 10px 40px rgba(0,0,0,0.4);
+  text-align:center;
+  color:#fff;
+  animation:fadeIn 1s ease;
+}
+
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(20px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+/* LOGO */
+.logo{
+  width:95px;
+  height:95px;
+  border-radius:50%;
+  overflow:hidden;
+  margin:0 auto 15px;
+  border:3px solid rgba(255,255,255,0.4);
+  box-shadow:0 0 15px rgba(0,198,255,0.7);
+}
+
+.logo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* TITLE */
+h1{
+  font-size:24px;
+  font-weight:700;
+  margin-bottom:8px;
+}
+
+/* SUBTEXT */
+.sub{
+  font-size:14px;
+  opacity:0.85;
+  margin-bottom:15px;
+}
+
+/* TRUST BADGE */
+.badge{
+  display:inline-block;
+  font-size:12px;
+  padding:5px 12px;
+  border-radius:20px;
+  background:rgba(0,255,150,0.2);
+  margin-bottom:15px;
+}
+
+/* FEATURES */
+.features{
+  text-align:left;
+  margin-bottom:20px;
+}
+
+.features p{
+  font-size:14px;
+  margin:6px 0;
+}
+
+/* CTA BUTTON */
+.btn{
+  display:block;
+  width:100%;
+  padding:14px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:600;
+  background:linear-gradient(45deg,#00c6ff,#0072ff);
+  color:#fff;
+  transition:0.3s;
+  box-shadow:0 0 20px rgba(0,114,255,0.6);
+}
+
+.btn:hover{
+  transform:scale(1.07);
+  box-shadow:0 0 30px rgba(0,198,255,0.9);
+}
+
+/* SMALL TEXT */
+.small{
+  font-size:12px;
+  margin-top:10px;
+  opacity:0.8;
+}
+
+/* DISCLAIMER */
+.disclaimer{
+  font-size:11px;
+  opacity:0.65;
+  margin-top:15px;
+  line-height:1.4;
+}
+</style>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2234025214014027');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2234025214014027&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- LOGO -->
+  <div class="logo">
+    <img src="https://github.com/nafesslaptop-web/mehta/releases/download/mehta/mehta.jpg" alt="logo">
+  </div>
+
+  <!-- TITLE -->
+  <h1>
+Mehta is back official</h1>
+
+  <!-- SUBTEXT -->
+  <p class="sub">
+    Learn Stock Market Basics | Trading Knowledge | Educational Only
+  </p>
+
+  <!-- TRUST BADGE -->
+  <div class="badge">🔥 10,000+ Learners Joined</div>
+
+  <!-- FEATURES -->
+  <div class="features">
+    <p>✔ Beginners ke liye simple learning</p>
+    <p>✔ Market basics & easy strategies</p>
+    <p>✔ Daily educational updates</p>
+    <p>✔ No tips / No signals – sirf learning</p>
+  </div>
+
+  <!-- CTA -->
+  <a href="https://t.me/+QgInAbmYAfozMWU9" class="btn">🚀 Free Telegram Channel Join Now</a>
+
+  <div class="small">Limited Time Free Access</div>
+
+  <!-- DISCLAIMER -->
+  <p class="disclaimer">
+    Disclaimer: Yeh platform sirf educational purpose ke liye hai.  
+    Hum koi financial ya investment advice provide nahi karte.  
+    Stock market me risk hota hai. Invest karne se pehle apni research zaroor karein.
+  </p>
+
+</div>
+
+</body>
+</html>
