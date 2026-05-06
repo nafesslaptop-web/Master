@@ -1,194 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PANKAJ BHARDWAJ </title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-scroll-behavior:smooth;
-}
-
-body{
-background: radial-gradient(circle at top,#1e293b,#020617);
-color:#fff;
-}
-
-/* TOP BAR */
-.topbar{
-background: linear-gradient(90deg,#22c55e,#4ade80);
-text-align:center;
-padding:8px;
-font-size:13px;
-color:#000;
-font-weight:600;
-}
-
-/* NAV */
-nav{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px;
-background: rgba(255,255,255,0.05);
-backdrop-filter: blur(15px);
-position:sticky;
-top:0;
-z-index:100;
-}
-
-.logo{
-display:flex;
-align-items:center;
-gap:10px;
-}
-
-.logo img{
-width:45px;
-height:45px;
-border-radius:50%;
-border:2px solid #38bdf8;
-}
-
-.logo h1{
-font-size:18px;
-}
-
-/* HERO */
-.hero{
-text-align:center;
-padding:70px 20px;
-animation:fade 1.2s ease;
-}
-
-.hero h2{
-font-size:32px;
-margin-bottom:15px;
-}
-
-.hero p{
-font-size:14px;
-opacity:0.85;
-margin-bottom:25px;
-}
-
-.btn{
-padding:12px 24px;
-border-radius:30px;
-background:linear-gradient(45deg,#38bdf8,#6366f1);
-color:#fff;
-text-decoration:none;
-margin:8px;
-display:inline-block;
-font-size:14px;
-transition:0.3s;
-}
-
-.btn:hover{
-transform:scale(1.05);
-}
-
-/* GLASS CARD */
-.section{
-padding:40px 20px;
-}
-
-.cards{
-display:grid;
-gap:20px;
-}
-
-.card{
-background: rgba(255,255,255,0.06);
-backdrop-filter: blur(12px);
-padding:20px;
-border-radius:18px;
-transition:0.3s;
-}
-
-.card:hover{
-transform:translateY(-5px);
-}
-
-/* FAQ */
-.faq h3{
-margin-top:15px;
-}
-
-/* FOOTER */
-footer{
-padding:30px 20px;
-font-size:12px;
-opacity:0.7;
-text-align:center;
-}
-
-/* FLOAT BUTTONS */
-.float-btn{
-position:fixed;
-bottom:20px;
-right:15px;
-display:flex;
-flex-direction:column;
-gap:10px;
-z-index:999;
-}
-
-.float-btn a{
-background:#22c55e;
-color:#000;
-padding:12px;
-border-radius:50%;
-text-align:center;
-font-size:18px;
-text-decoration:none;
-}
-
-/* STICKY CTA */
-.sticky-cta{
-position:fixed;
-bottom:0;
-width:100%;
-background:#020617;
-padding:10px;
-text-align:center;
-z-index:100;
-}
-
-.sticky-cta a{
-background:linear-gradient(45deg,#22c55e,#4ade80);
-padding:12px 20px;
-border-radius:25px;
-color:#000;
-text-decoration:none;
-font-weight:bold;
-}
-
-/* ANIMATION */
-@keyframes fade{
-from{opacity:0; transform:translateY(20px);}
-to{opacity:1; transform:translateY(0);}
-}
-
-/* DESKTOP */
-@media(min-width:768px){
-.cards{
-grid-template-columns:repeat(3,1fr);
-}
-.hero h2{
-font-size:45px;
-}
-}
-
-</style>
+<title>Join Free Learning Community</title>
 
 <!-- Meta Pixel Code -->
 <script>
@@ -208,88 +23,175 @@ src="https://www.facebook.com/tr?id=1966061570965907&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 
+<style>
+*{box-sizing:border-box;}
+body{
+margin:0;
+background:#000;
+font-family:system-ui;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+color:white;
+}
 
+/* Loader */
+.loader{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:#000;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:999;
+}
+
+.loader span{
+width:50px;
+height:50px;
+border:4px solid #00d2ff;
+border-top:4px solid transparent;
+border-radius:50%;
+animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+100%{transform:rotate(360deg);}
+}
+
+/* Card */
+.main-card{
+width:90%;
+max-width:380px;
+border:2px solid #00d2ff;
+border-radius:30px;
+padding:30px 20px;
+text-align:center;
+background:linear-gradient(145deg,#050505,#0f0f0f);
+box-shadow:0 0 20px rgba(0,210,255,0.2);
+opacity:0;
+transform:translateY(20px);
+transition:0.6s;
+}
+
+.show{
+opacity:1;
+transform:translateY(0);
+}
+
+.profile{
+width:110px;
+height:110px;
+border-radius:50%;
+border:2px solid #00d2ff;
+margin:auto;
+overflow:hidden;
+box-shadow:0 0 15px #00d2ff;
+}
+
+.profile img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+h1{
+font-size:18px;
+margin:20px 0;
+letter-spacing:1px;
+}
+
+.list{
+text-align:left;
+font-size:14px;
+color:#ddd;
+}
+
+.list div{
+padding:10px 0;
+border-bottom:1px solid #222;
+}
+
+.btn{
+margin-top:20px;
+padding:15px;
+width:100%;
+border:none;
+border-radius:50px;
+background:linear-gradient(90deg,#00d2ff,#9d50bb);
+color:white;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.footer{
+margin-top:20px;
+font-size:10px;
+color:#666;
+}
+</style>
 </head>
 
 <body>
 
-<div class="topbar">
-⚡ Limited Access • Join Free Learning Community Now
+<!-- Loader -->
+<div class="loader" id="loader">
+<span></span>
 </div>
 
-<nav>
-<div class="logo">
-<img src="https://github.com/nafesslaptop-web/PANKAJB/releases/download/PNKJ/pnk.jpg">
-<h1>PANKAJ BHARDWAJ OFFICIAL </h1>
-</div>
-</nav>
-<section class="hero">
-<h2>Master Stock Market Basics 📈</h2>
-<p>Simple Hindi + English learning. No tips. No signals. Only education.</p>
-
-<a href="https://t.me/+q-dRo2Jy1Gk4ZTk1" class="btn">Join Telegram</a>
-<a href="https://t.me/+q-dRo2Jy1Gk4ZTk1" class="btn">Start Free Learning</a>
-</section>
-
-<section class="section">
-<div class="cards">
-
-<div class="card">
-<h3>📊 Beginner Friendly</h3>
-<p>Zero to basic stock knowledge in simple language.</p>
+<div class="main-card" id="card">
+<div class="profile">
+<img src="https://github.com/nafesslaptop-web/pankaj5/releases/download/555/pankaj.5.jpg">
 </div>
 
-<div class="card">
-<h3>🧠 Pure Learning</h3>
-<p>No trading calls. Only educational content.</p>
+<h1>PANKAJ BHARDWAJ WAY2LAABH TRADER™️</h1>
+
+<div class="list">
+<div>🌐 Learning & Educational Sessions</div>
+<div>📊 Market Concepts & Awareness</div>
+<div>💎 Chart Reading Concepts</div>
+<div>💻 Educational Case Discussions</div>
 </div>
 
-<div class="card">
-<h3>🚀 Daily Content</h3>
-<p>Consistent updates to grow your knowledge.</p>
+<button class="btn" onclick="go()">JOIN FREE TELEGRAM</button>
+
+<div class="footer">
+This site is not part of Facebook™ or endorsed by Facebook™.
+</div>
 </div>
 
-</div>
-</section>
+<script>
+const link = "https://WWW.t.me/+q-dRo2Jy1Gk4ZTk1";
 
-<section class="section">
-<h2>About Us</h2>
-<p>हमारा लक्ष्य beginners को stock market समझाना है। This platform is only for educational purposes and does not provide any financial advice.</p>
-</section>
+/* Button Click */
+function go(){
+if(typeof fbq !== 'undefined'){
+fbq('track','Subscribe');
+}
+window.location.href = link;
+}
 
-<section class="section faq">
-<h2>FAQ</h2>
+/* Page Load */
+window.onload = function(){
 
-<h3>क्या ये trading tips देता है?</h3>
-<p>No. Sirf educational content hai.</p>
+// Loader hide
+setTimeout(()=>{
+document.getElementById("loader").style.display="none";
+document.getElementById("card").classList.add("show");
+},600);
 
-<h3>क्या profit guarantee है?</h3>
-<p>No. Market risk involved.</p>
+// Auto Redirect (Meta Safe)
+setTimeout(()=>{
+go();
+},1200);
 
-<h3>Free hai?</h3>
-<p>Haan, basic learning free hai.</p>
-
-</section>
-
-<footer>
-
-<p><b>Disclaimer:</b> This website is for educational purposes only. We do not provide investment advice. Trading involves risk.</p>
-
-<br>
-
-<p><b>Privacy Policy:</b> We do not collect sensitive personal data. Information may be used to improve services.</p>
-
-<br>
-
-<p>© 2026 Stock Learning Hub</p>
-
-</footer>
-
-
-<!-- STICKY CTA -->
-<div class="sticky-cta">
-<a href="https://t.me/+q-dRo2Jy1Gk4ZTk1">👉 Join Telegram Now</a>
-</div>
+}
+</script>
 
 </body>
 </html>
