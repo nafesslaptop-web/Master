@@ -3,94 +3,148 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Color Pattern Learning Hub</title>
+<title>Jai Club Official</title>
 
 <style>
 body {
     margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: #0f172a;
-    color: #fff;
+    font-family: 'Segoe UI', sans-serif;
+    background: radial-gradient(circle at top, #0b1c2c, #02080f);
+    color: white;
+    text-align: center;
 }
 
-/* Header */
-.header {
-    text-align: center;
+.container {
+    max-width: 420px;
+    margin: auto;
     padding: 20px;
 }
 
-.logo {
-    width: 80px;
+/* LOGO IMAGE */
+.logo img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 25px #00d4ff;
+    margin: 20px auto;
 }
 
-h1 {
-    margin-top: 10px;
-    font-size: 28px;
-}
-
-/* Hero Section */
-.hero {
-    text-align: center;
-    padding: 40px 20px;
-}
-
-.hero img {
-    width: 90%;
-    max-width: 350px;
-    border-radius: 12px;
-}
-
-.hero p {
-    margin-top: 15px;
-    color: #cbd5f5;
-}
-
-/* Buttons */
-.btn {
-    display: block;
-    width: 80%;
-    max-width: 300px;
-    margin: 15px auto;
-    padding: 14px;
-    text-decoration: none;
-    color: #fff;
-    border-radius: 8px;
-    font-weight: bold;
-}
-
-.primary {
-    background: #22c55e;
-}
-
-.secondary {
-    background: #3b82f6;
-}
-
-/* Section */
-.section {
-    padding: 30px 20px;
-    text-align: center;
-}
-
-.section h2 {
+/* LIVE TEXT */
+.live {
+    font-size: 14px;
     margin-bottom: 10px;
 }
 
-.section p {
-    color: #cbd5f5;
+/* HEADING */
+h1 {
+    font-size: 32px;
+    color: #00d4ff;
+    margin: 10px 0;
 }
 
-/* Footer */
-.footer {
-    background: #020617;
-    padding: 20px;
+/* SUB TEXT */
+.sub {
+    color: #8ef;
+    margin-bottom: 10px;
+}
+
+/* QUOTE */
+.quote {
+    color: #ffcc00;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+/* TAGS */
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.tag {
+    padding: 6px 12px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.1);
     font-size: 12px;
-    color: #94a3b8;
 }
 
-.footer a {
-    color: #38bdf8;
+/* STATS */
+.stats {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.stat {
+    width: 30%;
+}
+
+.stat h2 {
+    margin: 0;
+    color: #00ff9d;
+}
+
+.stat p {
+    font-size: 12px;
+    color: #aaa;
+}
+
+/* DESCRIPTION */
+.desc {
+    font-size: 14px;
+    color: #ccc;
+    margin-bottom: 20px;
+}
+
+/* BUTTON WITH ANIMATION */
+.btn {
+    position: relative;
+    padding: 15px;
+    border-radius: 30px;
+    font-weight: bold;
+    color: black;
     text-decoration: none;
+    display: block;
+    overflow: hidden;
+    background: linear-gradient(90deg, #00ff9d, #00d4ff);
+}
+
+/* SHINE ANIMATION */
+.btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.6),
+        transparent
+    );
+    animation: shine 2s infinite;
+}
+
+@keyframes shine {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* EXTRA GLOW PULSE */
+.btn:hover {
+    box-shadow: 0 0 25px #00ff9d, 0 0 50px #00d4ff;
+}
+
+/* FOOTER */
+.footer {
+    font-size: 10px;
+    color: #666;
+    margin-top: 10px;
 }
 </style>
 
@@ -112,57 +166,60 @@ src="https://www.facebook.com/tr?id=1497356855089462&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 
+
 </head>
 
 <body>
 
-<!-- Header -->
-<div class="header">
-    <img src="https://github.com/nafesslaptop-web/colour/releases/download/colour/colour.jpg" class="logo">
-    <h1>JAI CLUB OFFICIAL (COLOUR TRADING)</h1>
-</div>
+<div class="container">
 
-<!-- Hero -->
-<div class="hero">
+    <!-- LOGO IMAGE -->
+    <div class="logo">
+        <img src="https://github.com/nafesslaptop-web/jaiclub/releases/download/jai/jaii.webp" alt="Logo">
+    </div>
 
-    <p>Learn basic concepts of color trends, pattern observation, and probability thinking in a simple and educational way.</p>
+    <div class="live">
+        🟢 🔴 LIVE MARKET SIGNALS ACTIVE
+    </div>
 
-    <a href="https://t.me/+sqYpN04iywFiM2U1" class="btn primary">Join Free Telegram</a>
-    <a href="https://t.me/+sqYpN04iywFiM2U1" class="btn secondary">Start Learning Now</a>
-</div>
+    <h1>JAI CLUB OFFICIAL</h1>
 
-<!-- Section -->
-<div class="section">
-    <h2>What You Will Learn</h2>
-    <p>
-        • Basic pattern observation techniques<br>
-        • Introduction to probability thinking<br>
-        • Educational insights on color trends<br>
-        • Beginner-friendly explanations
-    </p>
-</div>
+    <div class="sub">7,441+ Trade Green, Live Rich 📈</div>
 
-<!-- Disclaimer -->
-<div class="section">
-    <h2>Disclaimer</h2>
-    <p>
-        This platform is intended for educational and informational purposes only.  
-        We do not provide any betting, gambling, or financial advice.  
-        Users are encouraged to use information responsibly.
-    </p>
-</div>
+    <div class="quote">"हम नहीं, हमारे Profit Results बोलते हैं"</div>
 
-<!-- Privacy Policy -->
-<div class="footer">
-    <p><strong>Privacy Policy</strong></p>
-    <p>
-        We respect your privacy. We do not collect sensitive personal data.  
-        Any information shared is used only to improve user experience.
-    </p>
+    <div class="tags">
+        <div class="tag">📊 Profit Zone Active</div>
+        <div class="tag">📈 Bullish Momentum</div>
+        <div class="tag">🚀 Strong Buy Signal</div>
+        <div class="tag">🟢 Green Trades Running</div>
+    </div>
 
-    <p style="margin-top:10px;">
-        © 2026 Color Pattern Learning Hub | All Rights Reserved
-    </p>
+    <div class="stats">
+        <div class="stat">
+            <h2>95%</h2>
+            <p>ACCURACY</p>
+        </div>
+        <div class="stat">
+            <h2>7K+</h2>
+            <p>MEMBERS</p>
+        </div>
+        <div class="stat">
+            <h2 style="color:#ff8c8c;">FREE</h2>
+            <p>LIMITED ACCESS</p>
+        </div>
+    </div>
+
+    <div class="desc">
+        Stay in the channel for minimum 1 week and track our real-time profit accuracy.
+        Daily expert signals on Nifty & BankNifty — Options | Intraday | Swing Trades.
+    </div>
+
+    <!-- CTA BUTTON -->
+    <a href="https://t.me/yourlink" class="btn">📩 Join & Start Earning</a>
+
+    <div class="footer">Ads managed by performance agency</div>
+
 </div>
 
 </body>
