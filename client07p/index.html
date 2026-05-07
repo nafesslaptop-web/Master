@@ -1,227 +1,199 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="hi">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join Free Learning Community</title>
 
-    <!-- Meta Pixel Code -->
-    <script>
-        !function (f, b, e, v, n, t, s) {
-            if (f.fbq) return;
-            n = f.fbq = function () {
-                n.callMethod ?
-                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-            };
-            if (!f._fbq) f._fbq = n;
-            n.push = n;
-            n.loaded = true;
-            n.version = '2.0';
-            n.queue = [];
-            t = b.createElement(e);
-            t.async = true;
-            t.src = v;
-            s = b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t, s)
-        }(window, document, 'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
 
-        fbq('init', '977791034756513');
-        fbq('track', 'PageView');
-    </script>
+fbq('init', '977791034756513');
+fbq('track', 'PageView');
+</script>
 
-    <noscript>
-        <img height="1" width="1" style="display:none"
-            src="https://www.facebook.com/tr?id=977791034756513&ev=PageView&noscript=1" />
-    </noscript>
-    <!-- End Meta Pixel Code -->
+<noscript>
+<img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=977791034756513&ev=PageView&noscript=1"/>
+</noscript>
 
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>
+*{box-sizing:border-box;}
+body{
+margin:0;
+background:#000;
+font-family:system-ui;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+color:white;
+}
 
-    <title>Stock Market Learning Community</title>
+/* Loader */
+.loader{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:#000;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:999;
+}
 
-    <!-- Tailwind -->
-    <script src="https://cdn.tailwindcss.com"></script>
+.loader span{
+width:50px;
+height:50px;
+border:4px solid #00d2ff;
+border-top:4px solid transparent;
+border-radius:50%;
+animation:spin 1s linear infinite;
+}
 
-    <style>
-        body {
-            margin: 0;
-            padding: 16px;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #020617, #0f172a);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-        }
+@keyframes spin{
+100%{transform:rotate(360deg);}
+}
 
-        .main-card {
-            width: 100%;
-            max-width: 430px;
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 28px;
-            padding: 28px 22px;
-            text-align: center;
-            backdrop-filter: blur(14px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
-        }
+/* Card */
+.main-card{
+width:90%;
+max-width:380px;
+border:2px solid #00d2ff;
+border-radius:30px;
+padding:30px 20px;
+text-align:center;
+background:linear-gradient(145deg,#050505,#0f0f0f);
+box-shadow:0 0 20px rgba(0,210,255,0.2);
+opacity:0;
+transform:translateY(20px);
+transition:0.6s;
+}
 
-        .logo {
-            width: 110px;
-            height: 110px;
-            border-radius: 999px;
-            object-fit: cover;
-            margin: auto;
-            border: 4px solid rgba(255, 255, 255, 0.25);
-        }
+.show{
+opacity:1;
+transform:translateY(0);
+}
 
-        .tag {
-            display: inline-block;
-            background: rgba(6, 182, 212, 0.18);
-            color: #67e8f9;
-            padding: 8px 16px;
-            border-radius: 999px;
-            font-size: 13px;
-            font-weight: 600;
-            margin-top: 12px;
-        }
+.profile{
+width:110px;
+height:110px;
+border-radius:50%;
+border:2px solid #00d2ff;
+margin:auto;
+overflow:hidden;
+box-shadow:0 0 15px #00d2ff;
+}
 
-        .join-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            width: 100%;
-            padding: 15px;
-            border-radius: 18px;
-            text-decoration: none;
-            color: white;
-            font-weight: 700;
-            background: linear-gradient(135deg, #0ea5e9, #06b6d4);
-            transition: 0.3s;
-            margin-top: 20px;
-        }
+.profile img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
 
-        .join-btn:hover {
-            transform: translateY(-2px);
-        }
+h1{
+font-size:18px;
+margin:20px 0;
+letter-spacing:1px;
+}
 
-        .feature-box {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 18px;
-            padding: 14px;
-            text-align: left;
-            margin-top: 14px;
-            border: 1px solid rgba(255, 255, 255, 0.06);
-        }
+.list{
+text-align:left;
+font-size:14px;
+color:#ddd;
+}
 
-        .footer-links {
-            margin-top: 24px;
-            font-size: 13px;
-            color: #cbd5e1;
-            line-height: 1.8;
-        }
+.list div{
+padding:10px 0;
+border-bottom:1px solid #222;
+}
 
-        .footer-links a {
-            color: #67e8f9;
-            text-decoration: none;
-        }
-    </style>
+.btn{
+margin-top:20px;
+padding:15px;
+width:100%;
+border:none;
+border-radius:50px;
+background:linear-gradient(90deg,#00d2ff,#9d50bb);
+color:white;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+}
 
+.footer{
+margin-top:20px;
+font-size:10px;
+color:#666;
+}
+</style>
 </head>
 
 <body>
 
-    <div class="main-card">
+<!-- Loader -->
+<div class="loader" id="loader">
+<span></span>
+</div>
 
-        <!-- Logo -->
-        <img src="https://github.com/nafesslaptop-web/pankajeducation/releases/download/panka/pankaj.5.jpg"
-            alt="Logo"
-            class="logo">
+<div class="main-card" id="card">
+<div class="profile">
+<img src="https://github.com/nafesslaptop-web/pankaj5/releases/download/555/pankaj.5.jpg">
+</div>
 
-        <!-- Heading -->
-        <h1 class="text-3xl font-bold mt-5">
-            Pankaj Sir educational
-        </h1>
+<h1>PANKAJ BHARDWAJ WAY2LAABH TRADER™️</h1>
 
-        <!-- Subtitle -->
-        <p class="text-cyan-300 text-sm mt-3">
-            Educational Community for Stock Market Learning
-        </p>
+<div class="list">
+<div>🌐 Learning & Educational Sessions</div>
+<div>📊 Market Concepts & Awareness</div>
+<div>💎 Chart Reading Concepts</div>
+<div>💻 Educational Case Discussions</div>
+</div>
 
-        <!-- Tag -->
-        <div class="tag">
-            Learn • Analyze • Awareness
-        </div>
+<button class="btn" onclick="go()">JOIN FREE TELEGRAM</button>
 
-        <!-- Description -->
-        <p class="text-gray-300 text-sm leading-7 mt-6">
-            Join our educational community to explore stock market basics,
-            chart understanding, financial awareness, and learning discussions.
-        </p>
+<div class="footer">
+This site is not part of Facebook™ or endorsed by Facebook™.
+</div>
+</div>
 
-        <!-- Button -->
-        <a href="https://t.me/+VAumJjQnEQc5YzBl"
-            target="_blank"
-            class="join-btn"
-            onclick="fbq('track', 'Contact');">
+<script>
+const link = "https://www.t.me/+VAumJjQnEQc5YzBl";
 
-            <svg xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                fill="currentColor"
-                viewBox="0 0 16 16">
+/* Button Click */
+function go(){
+if(typeof fbq !== 'undefined'){
+fbq('track','Subscribe');
+}
+window.location.href = link;
+}
 
-                <path
-                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0ZM6.79 10.89l-.27 3.67c.39 0 .56-.17.77-.38l1.84-1.76 3.85 2.8c.7.39 1.19.19 1.36-.65l2.47-11.59c.22-.98-.35-1.37-1.05-1.14L1.13 6.24c-.95.37-.93.9-.17 1.14l3.57 1.11 8.3-5.22c.39-.25.74-.12.45.14L6.79 10.89z" />
-            </svg>
+/* Page Load */
+window.onload = function(){
 
-            Join Educational Community
-        </a>
+// Loader hide
+setTimeout(()=>{
+document.getElementById("loader").style.display="none";
+document.getElementById("card").classList.add("show");
+},600);
 
-        <!-- Features -->
-        <div class="feature-box">
-            📘 Educational stock market discussions
-        </div>
+// Auto Redirect (Meta Safe)
+setTimeout(()=>{
+go();
+},1200);
 
-        <div class="feature-box">
-            📊 Basic chart understanding & market awareness
-        </div>
-
-        <div class="feature-box">
-            💬 Community learning environment
-        </div>
-
-        <div class="feature-box">
-            📚 Informational content for learning purposes only
-        </div>
-
-        <!-- Disclaimer -->
-        <div class="feature-box">
-
-            <b>Disclaimer:</b><br><br>
-
-            This platform is intended only for educational and informational purposes.
-            No investment advice, trading advice, guaranteed returns, or profit assurances are provided.
-            Financial markets involve risk. Users should conduct their own research before making financial decisions.
-
-        </div>
-
-        <!-- Footer -->
-        <div class="footer-links">
-
-            <p>
-                About Us | Privacy Policy | Disclaimer
-            </p>
-
-            <p>
-            </p>
-
-        </div>
-
-    </div>
+}
+</script>
 
 </body>
-
 </html>
