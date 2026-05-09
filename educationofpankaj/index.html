@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Free Learning Community</title>
+
+    <style>
+        body {
+            margin: 0; padding: 0;
+            font-family: system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            display: flex; justify-content: center; align-items: center;
+            min-height: 100vh;
+        }
+
+        .container { width: 100%; max-width: 380px; padding: 15px; }
+
+        .card {
+            background: rgba(0, 0, 0, 0.85); padding: 25px; border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(0, 255, 120, 0.15); color: #ffffff; text-align: center;
+        }
+
+        .profile img {
+            width: 110px; height: 110px; border-radius: 50%;
+            border: 4px solid #00ff7f; box-shadow: 0 0 25px rgba(0, 255, 120, 0.5); object-fit: cover;
+        }
+
+        .heading {
+            font-size: 22px; font-weight: bold;
+            background: linear-gradient(90deg, #00ff7f, #00c3ff);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 15px 0;
+        }
+
+        .subtext { font-size: 13px; color: #cccccc; margin-bottom: 15px; }
+        .counter { font-size: 13px; color: #aaffcc; margin-bottom: 15px; }
+
+        /* Button initially hidden for 2s delay */
+        .button {
+            display: none; 
+            background: linear-gradient(90deg, #00ff7f, #00c3ff);
+            color: #000000; padding: 15px; font-size: 16px; font-weight: bold;
+            border-radius: 50px; text-decoration: none;
+            box-shadow: 0 8px 25px rgba(0, 255, 120, 0.4); margin: 15px 0;
+            animation: pulse 1.5s infinite; cursor: pointer; border: none; width: 100%;
+        }
+
+        .feature { background: #111; padding: 10px; border-radius: 40px; margin: 8px 0; font-size: 13px; }
+        .disclaimer { font-size: 10px; color: #aaaaaa; margin-top: 15px; line-height: 1.4; }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.04); }
+            100% { transform: scale(1); }
+        }
+    </style>
+
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1672249290490482');
+    fbq('track', 'PageView');
+    </script>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="card">
+            <div class="profile">
+                <img src="https://github.com/siyalshivam690-maker/pankaj/releases/download/pankaj/pnk.jpg">
+            </div>
+
+            <div class="heading">PANKAJ BHARDWAJ WAY2 LAABH.COM SEBI registered</div>
+
+            <div class="subtext">📊 India’s Fast Growing Stock Market Learning Channel</div>
+
+            <div id="liveCount" class="counter">🔥 2,389 Serious Traders Joined</div>
+
+            <button class="button js-btn" onclick="handleJoin()">JOIN OUR LEARNING CHANNEL</button>
+
+            <div class="feature">📈 Daily Stock Market Analysis</div>
+            <div class="feature">💹 Intraday & Swing Trading Learning</div>
+            <div class="feature">🎯 Beginner to Advanced Guidance</div>
+
+            <button class="button js-btn" onclick="handleJoin()">JOIN OUR LEARNING CHANNEL</button>
+
+            <div class="disclaimer">Educational purposes only. Market investments are subject to risk.</div>
+        </div>
+    </div>
+
+    <script>
+        const webUrl = "https://t.me/+MPlor5Vt1x5hODc9";
+        const deepUrl = "tg://join?invite=MPlor5Vt1x5hODc9";
+
+        // 1. 2 Second Delay: Bots ko filter karne ke liye
+        setTimeout(function() {
+            var btns = document.querySelectorAll('.js-btn');
+            btns.forEach(btn => btn.style.display = 'block');
+        }, 2000);
+
+        // 2. Handle Join: Pixel Tracking + Bypass Redirect
+        function handleJoin() {
+            // Meta Subscribe Event Fire
+            if(typeof fbq !== 'undefined') {
+                fbq('track', 'Subscribe');
+                console.log("Subscribe Event Fired");
+            }
+
+            // Attempt to open Telegram App directly
+            window.location.href = deepUrl;
+
+            // Fallback to web link if app doesn't open
+            setTimeout(function() {
+                window.location.href = webUrl;
+            }, 800);
+        }
+
+        // 3. Fake Live Counter
+        var base = 2389;
+        setInterval(function() {
+            base += Math.floor(Math.random() * 4);
+            document.getElementById("liveCount").innerHTML = "🔥 " + base + " Serious Traders Joined";
+        }, 4000);
+    </script>
+</body>
+</html>
