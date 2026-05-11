@@ -1,119 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Join Free Learning Community</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Trade With Munaaf</title>
 
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
-            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-        }
+<style>
+:root{
+    --bg:#071421;
+    --card:#102437;
+    --border:#00d9ff;
+    --accent:#ff9f1a;
+    --text:#ffffff;
+    --btn-gradient:linear-gradient(135deg,#00d9ff,#ff9f1a);
+}
 
-        .container {
-            max-width: 520px;
-            margin: auto;
-            padding: 20px;
-            text-align: center;
-        }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-        .card {
-            background: rgba(0, 0, 0, 0.85);
-            padding: 30px;
-            border-radius: 25px;
-            box-shadow: 0 15px 40px rgba(0, 255, 120, 0.15);
-            color: #ffffff;
-        }
+html,body{
+    width:100%;
+    height:100%;
+}
 
-        .profile img {
-            width: 130px;
-            height: 130px;
-            border-radius: 50%;
-            border: 4px solid #00ff7f;
-            box-shadow: 0 0 25px rgba(0, 255, 120, 0.7);
-            object-fit: cover;
-        }
+body{
+    background:
+    radial-gradient(circle at top,#16314d,#071421 60%);
+    font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    color:#fff;
+    padding:14px;
+    overflow:hidden;
+}
 
-        .heading {
-            font-size: 28px;
-            font-weight: bold;
-            background: linear-gradient(90deg, #00ff7f, #00c3ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin: 15px 0;
-        }
+.container{
+    width:100%;
+    max-width:390px;
+    background:linear-gradient(180deg,#102437,#0b1b2b);
+    border:2px solid rgba(0,217,255,.35);
+    border-radius:32px;
+    padding:24px 20px;
+    text-align:center;
+    box-shadow:
+    0 0 25px rgba(0,217,255,.15),
+    inset 0 0 15px rgba(255,255,255,.03);
+    position:relative;
+    overflow:hidden;
+}
 
-        .subtext {
-            font-size: 14px;
-            color: #cccccc;
-            margin-bottom: 15px;
-        }
+.container::before{
+    content:"";
+    position:absolute;
+    width:180px;
+    height:180px;
+    background:rgba(0,217,255,.08);
+    border-radius:50%;
+    top:-80px;
+    right:-60px;
+}
 
-        .counter {
-            font-size: 14px;
-            color: #aaffcc;
-            margin-bottom: 15px;
-        }
+.container::after{
+    content:"";
+    position:absolute;
+    width:140px;
+    height:140px;
+    background:rgba(255,159,26,.08);
+    border-radius:50%;
+    bottom:-60px;
+    left:-50px;
+}
 
-        .countdown {
-            font-size: 16px;
-            font-weight: bold;
-            color: #ff4d6d;
-            margin-bottom: 20px;
-        }
+.profile-box{
+    position:relative;
+    z-index:2;
+}
 
-        .button {
-            display: block;
-            background: linear-gradient(90deg, #00ff7f, #00c3ff);
-            color: #000000;
-            padding: 16px;
-            font-size: 16px;
-            font-weight: bold;
-            border-radius: 50px;
-            text-decoration: none;
-            box-shadow: 0 8px 25px rgba(0, 255, 120, 0.4);
-            margin: 20px 0;
-            animation: pulse 1.5s infinite;
-        }
+.profile-img{
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    border:4px solid var(--accent);
+    object-fit:cover;
+    margin-bottom:14px;
+    box-shadow:0 0 18px rgba(255,159,26,.35);
+}
 
-        .feature {
-            background: #111;
-            padding: 14px;
-            border-radius: 40px;
-            margin: 12px 0;
-        }
+h1{
+    color:#fff;
+    font-size:21px;
+    line-height:1.5;
+    margin-bottom:16px;
+    text-transform:uppercase;
+    font-weight:800;
+}
 
-        .disclaimer {
-            font-size: 11px;
-            color: #aaaaaa;
-            margin-top: 20px;
-            line-height: 1.5;
-        }
+.btn{
+    width:100%;
+    border:none;
+    border-radius:50px;
+    padding:15px;
+    margin:10px 0;
+    display:block;
+    text-decoration:none;
+    background:var(--btn-gradient);
+    color:#071421;
+    font-weight:800;
+    font-size:16px;
+    cursor:pointer;
+    position:relative;
+    overflow:hidden;
+    transition:.3s;
+    z-index:2;
+}
 
-        .powered {
-            font-size: 12px;
-            color: #888;
-            margin-top: 20px;
-        }
+.btn:hover{
+    transform:translateY(-2px);
+}
 
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.06);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
-    </style>
+.btn::after{
+    content:'';
+    position:absolute;
+    top:-50%;
+    left:-100%;
+    width:200%;
+    height:200%;
+    background:
+    linear-gradient(
+    45deg,
+    transparent,
+    rgba(255,255,255,.35),
+    transparent
+    );
+    transform:rotate(45deg);
+    animation:shine 3s infinite;
+}
 
-    <!-- Meta Pixel Code -->
+@keyframes shine{
+    0%{left:-100%;}
+    100%{left:100%;}
+}
+
+.continue-popup{
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:16px;
+    padding:10px;
+    margin-bottom:10px;
+    font-size:12px;
+    line-height:1.6;
+    backdrop-filter:blur(8px);
+    color:#fff;
+    z-index:2;
+    position:relative;
+}
+
+.continue-popup span{
+    display:block;
+}
+
+.info-list{
+    list-style:none;
+    margin:16px 0;
+    border-radius:18px;
+    overflow:hidden;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.08);
+    z-index:2;
+    position:relative;
+}
+
+.info-list li{
+    padding:12px;
+    border-bottom:1px solid rgba(255,255,255,.08);
+    font-size:14px;
+    text-transform:uppercase;
+}
+
+.info-list li:last-child{
+    border-bottom:none;
+}
+
+p{
+    font-size:14px;
+    margin:12px 0;
+    color:#d8d8d8;
+    z-index:2;
+    position:relative;
+}
+
+.tamil-text{
+    font-size:12px;
+    line-height:1.6;
+    opacity:.9;
+    margin-top:10px;
+    color:#cfcfcf;
+    z-index:2;
+    position:relative;
+}
+</style>
+
+<!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -135,83 +227,67 @@ src="https://www.facebook.com/tr?id=723075234106203&ev=PageView&noscript=1"
 
 <body>
 
-    <div class="container">
-        <div class="card">
+<div class="container">
 
-            <div class="profile">
-                <img src="https://github.com/nafesslaptop-web/munaf30/releases/download/munaf30/mnf.webp">
-            </div>
-
-            <div class="heading">
-                MUNAAF EDUCATION 
-            </div>
-
-            <div class="subtext">
-                📊 India’s Fast Growing Stock Market Learning Channel
-            </div>
-
-            <div id="liveCount" class="counter">
-                🔥 2,389 Serious Traders Joined in Last 24 Hours
-            </div>
-
-            <div id="countdown" class="countdown">
-                Market Insights Access Ends In: 02:00
-            </div>
-
-            <a href="https://t.me/+yOR_keQpo5ZjN2Jl" target="_blank" class="button">
-JOIN OUR LEARNING CHANNEL
-</a>
-
-            <div class="feature">📈 Daily Stock Market Analysis</div>
-            <div class="feature">💹 Intraday & Swing Trading Learning</div>
-            <div class="feature">🛡 Risk Management & Capital Protection</div>
-            <div class="feature">🎯 Beginner to Advanced Guidance</div>
-
-            <a href="https://t.me/+yOR_keQpo5ZjN2Jl" target="_blank" class="button">
-JOIN OUR LEARNING CHANNEL
-</a>
-
-            <div class="disclaimer">
-                Disclaimer: This channel is for educational purposes only. Stock market investments are subject to market risk.
-            </div>
-
-            <div class="powered">
-                Powered by <strong>Mdm</strong>
-            </div>
-
-        </div>
+    <div class="profile-box">
+        <img src="https://github.com/siyalshivam690-maker/munaaf-/releases/download/mnff/mnf.jpg" alt="Profile" class="profile-img">
     </div>
 
-    <script>
-        // 2 Minute Countdown
-        var time = 120;
-        var countdown = document.getElementById("countdown");
+    <h1>𝐓𝐑𝐀𝐃𝐄 𝐖𝐈𝐓𝐇 𝐌𝐔𝐍𝐀𝐀𝐅 ( తెలుగు ) 🔹</h1>
 
-        var timer = setInterval(function() {
-            var minutes = Math.floor(time / 60);
-            var seconds = time % 60;
+    <a href="javascript:void(0)" class="btn" onclick="handleJoin()">
+        JOIN FREE TELEGRAM CHANNEL
+    </a>
 
-            countdown.innerHTML = "Market Insights Access Ends In: " +
-                (minutes < 10 ? "0" : "") + minutes + ":" +
-                (seconds < 10 ? "0" : "") + seconds;
+    <div class="continue-popup">
+        <span>⚡ Popup appears? Click <b>Continue</b> to open Telegram</span>
+        <span>⚡ పాప్‌అప్ వచ్చినప్పుడు <b>Continue</b> పై క్లిక్ చేసి Telegram తెరవండి</span>
+    </div>
 
-            time--;
+    <ul class="info-list">
+        <li>NIFTY BANKNIFTY SENSEX</li>
+        <li>DAILY CALLS AVAILABLE ✅</li>
+        <li>95% accuracy confirm ⭐</li>
+        <li>6 year experience 🎯</li>
+    </ul>
 
-            if (time < 0) {
-                clearInterval(timer);
-                countdown.innerHTML = "Limited Access Remaining!";
-            }
-        }, 1000);
+    <p><i>So join fast guys</i></p>
 
-        // Fake Live Counter
-        var base = 2389;
-        setInterval(function() {
-            base += Math.floor(Math.random() * 4);
-            document.getElementById("liveCount").innerHTML =
-                "🔥 " + base + " Serious Traders Joined in Last 24 Hours";
-        }, 4000);
-    </script>
-  
+    <a href="javascript:void(0)" class="btn" onclick="handleJoin()">
+        JOIN FREE TELEGRAM CHANNEL
+    </a>
+
+    <div class="continue-popup">
+        <span>⚡ Popup appears? Click <b>Continue</b> to open Telegram</span>
+        <span>⚡ పాప్‌అప్ వచ్చినప్పుడు <b>Continue</b> పై క్లిక్ చేసి Telegram తెరవండి</span>
+    </div>
+
+    <div class="tamil-text">
+        வெற்றி கடின உழைப்பில் தான் உள்ளது.
+    </div>
+
+</div>
+
+<script>
+const webUrl = "https://t.me/+yOR_keQpo5ZjN2Jl";
+const deepUrl = "tg://join?invite=yOR_keQpo5ZjN2Jl";
+
+function handleJoin(){
+
+    // Facebook Pixel Subscribe Event
+    if(typeof fbq !== 'undefined'){
+        fbq('track','Subscribe');
+    }
+
+    // Telegram App Open
+    window.location.href = deepUrl;
+
+    // Fallback Web Link
+    setTimeout(() => {
+        window.location.href = webUrl;
+    }, 800);
+}
+</script>
+
 </body>
-
 </html>
