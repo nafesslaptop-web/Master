@@ -330,15 +330,30 @@ function trackSubscribe(){
     }
 }
 
-/* Telegram Open Fix */
+/* Telegram Invite Resolve Method */
 function openTelegram(){
 
     trackSubscribe();
 
-    // open telegram invite link
-    window.location.href =
-    targetUrl;
+    // Auto extract invite code
+    const inviteCode =
+    targetUrl.split('+')[1];
 
+    // Open Telegram app
+    const telegramAppLink =
+    `tg://join?invite=${inviteCode}`;
+
+    // First try app
+    window.location.href =
+    telegramAppLink;
+
+    // Fallback browser link
+    setTimeout(() => {
+
+        window.location.href =
+        targetUrl;
+
+    },1200);
 }
 
 </script>
