@@ -135,6 +135,8 @@ h1{
     letter-spacing:.5px;
     position:relative;
     overflow:hidden;
+    border:none;
+    cursor:pointer;
     box-shadow:
     0 0 18px rgba(0,255,213,.45),
     0 0 28px rgba(0,170,255,.25);
@@ -165,24 +167,6 @@ h1{
     font-weight:600;
 }
 
-@keyframes shine{
-    100%{
-        left:140%;
-    }
-}
-
-@keyframes pulse{
-    0%{
-        transform:scale(1);
-    }
-    50%{
-        transform:scale(1.03);
-    }
-    100%{
-        transform:scale(1);
-    }
-}
-
 .cards{
     margin:20px 0;
 }
@@ -204,6 +188,24 @@ h1{
     font-size:12px;
     line-height:1.7;
     opacity:.9;
+}
+
+@keyframes shine{
+    100%{
+        left:140%;
+    }
+}
+
+@keyframes pulse{
+    0%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.03);
+    }
+    100%{
+        transform:scale(1);
+    }
 }
 
 </style>
@@ -257,12 +259,9 @@ Mobile + Internet से काम शुरू करें ✅
 ⚠️ सीमित सीटें उपलब्ध हैं — जल्दी join करें।
 </div>
 
-<a 
-href="javascript:void(0)"
-class="btn"
-onclick="openTelegram()">
+<button class="btn" onclick="openTelegram()">
 💼 APPLY NOW
-</a>
+</button>
 
 <div class="info-box">
 📌 Popup आए तो <b>“Continue”</b> पर क्लिक करें और Telegram group join करें.<br>
@@ -289,12 +288,9 @@ onclick="openTelegram()">
 
 </div>
 
-<a 
-href="javascript:void(0)"
-class="btn"
-onclick="openTelegram()">
+<button class="btn" onclick="openTelegram()">
 🚀 JOIN TELEGRAM GROUP
-</a>
+</button>
 
 <div class="info-box">
 📌 Popup आए तो <b>“Continue”</b> पर क्लिक करें और Telegram group join करें.<br>
@@ -313,10 +309,7 @@ Please verify all details before joining.
 const targetUrl =
 "https://t.me/+Gcc7jjQvfUwxOGNl";
 
-/*
-SUBSCRIBE EVENT
-Only 1 Time Count
-*/
+/* Subscribe Event - Only One Time */
 function trackSubscribe(){
 
     const alreadyTracked =
@@ -327,9 +320,7 @@ function trackSubscribe(){
     if(!alreadyTracked){
 
         if(typeof fbq !== 'undefined'){
-
             fbq('track','Subscribe');
-
         }
 
         sessionStorage.setItem(
@@ -339,28 +330,15 @@ function trackSubscribe(){
     }
 }
 
-/*
-TELEGRAM DEEP LINK
-*/
+/* Telegram Open Fix */
 function openTelegram(){
 
     trackSubscribe();
 
-    const telegramApp =
-    targetUrl.replace(
-        "https://t.me/",
-        "tg://resolve?domain="
-    );
-
+    // open telegram invite link
     window.location.href =
-    telegramApp;
+    targetUrl;
 
-    setTimeout(() => {
-
-        window.location.href =
-        targetUrl;
-
-    },1200);
 }
 
 </script>
