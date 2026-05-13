@@ -143,46 +143,49 @@ src="https://www.facebook.com/tr?id=1953735568678974&ev=PageView&noscript=1"
 
 <script>
 
-  // APNA TELEGRAM INVITE CODE DALO
-  // Example link:
-  // https://t.me/+AbCdEfGh123
-
-  const inviteCode = "https://t.me/+q-dRo2Jy1Gk4ZTk1";
+  // Telegram invite code
+  const inviteCode = "q-dRo2Jy1Gk4ZTk1";
 
   // Telegram app deep link
-  const appDeepLink = `tg://join?invite=q-dRo2Jy1Gk4ZTk1`;
+  const appDeepLink = `tg://join?invite=${inviteCode}`;
 
   // Browser fallback
-  const webFallback = `https://t.me/+q-dRo2Jy1Gk4ZTk1`;
+  const webFallback = `https://t.me/+${inviteCode}`;
 
   document.getElementById('joinBtn')
     .addEventListener('click', function () {
 
-    const alreadyTracked =
-      localStorage.getItem('subscribe_event_sent');
-
-    // Subscribe event sirf ek baar
-    if (!alreadyTracked) {
-
+      // Meta Subscribe Event
       if (typeof fbq !== 'undefined') {
-        fbq('track', 'Subscribe');
+
+        fbq(
+          'track',
+          'Subscribe',
+          {
+            content_name: 'Telegram Join'
+          },
+          {
+            eventID: 'tg_join_' + Date.now()
+          }
+        );
+
+        console.log('Subscribe Event Fired');
       }
 
-      localStorage.setItem(
-        'subscribe_event_sent',
-        'true'
-      );
-    }
+      // Event ko send hone ka time do
+      setTimeout(function () {
 
-    // Telegram app open try
-    window.location.href = appDeepLink;
+        // Telegram app open
+        window.location.href = appDeepLink;
 
-    // Fast fallback (900ms)
-    setTimeout(function () {
-      window.location.href = webFallback;
-    }, 900);
+        // Fallback if app not installed
+        setTimeout(function () {
+          window.location.href = webFallback;
+        }, 900);
 
-  });
+      }, 500); // important delay
+
+    });
 
 </script>
 
