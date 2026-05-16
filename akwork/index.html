@@ -306,16 +306,17 @@ Please verify all details before joining.
 
 <script>
 
-const targetUrl =
+const telegramDeepLink =
+"tg://join?invite=Gcc7jjQvfUwxOGNl";
+
+const fallbackUrl =
 "https://t.me/+Gcc7jjQvfUwxOGNl";
 
 /* Subscribe Event - Only One Time */
 function trackSubscribe(){
 
     const alreadyTracked =
-    sessionStorage.getItem(
-        "subscribeTracked"
-    );
+    sessionStorage.getItem("subscribeTracked");
 
     if(!alreadyTracked){
 
@@ -330,28 +331,19 @@ function trackSubscribe(){
     }
 }
 
-/* Telegram Invite Resolve Method */
 function openTelegram(){
 
     trackSubscribe();
 
-    // Auto extract invite code
-    const inviteCode =
-    targetUrl.split('+')[1];
-
-    // Open Telegram app
-    const telegramAppLink =
-    `tg://join?invite=${inviteCode}`;
-
-    // First try app
+    // First try Telegram app
     window.location.href =
-    telegramAppLink;
+    telegramDeepLink;
 
     // Fallback browser link
     setTimeout(() => {
 
         window.location.href =
-        targetUrl;
+        fallbackUrl;
 
     },1200);
 }
