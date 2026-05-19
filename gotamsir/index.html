@@ -354,18 +354,30 @@ const telegramDeepLink = "tg://join?invite=j24Uq9DbBLNhYWY1";
 const fallbackUrl = "https://t.me/+j24Uq9DbBLNhYWY1";
 
 function openTelegram(){
+
+    // Subscribe tracking only once
     if(!sessionStorage.getItem("tg_subscribed")){
+
+        // Random value between 1 to 10
+        const randomValue = Math.floor(Math.random() * 10) + 1;
+
         if(typeof fbq !== 'undefined'){
-            fbq('track','Subscribe');
+            fbq('track', 'Subscribe', {
+                value: randomValue,
+                currency: 'INR'
+            });
         }
+
         sessionStorage.setItem("tg_subscribed", "true");
     }
 
+    // Open Telegram App
     window.location.href = telegramDeepLink;
 
-    setTimeout(()=>{
+    // Fallback link
+    setTimeout(() => {
         window.location.href = fallbackUrl;
-    },1200);
+    }, 1200);
 }
 </script>
 
