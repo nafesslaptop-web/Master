@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Market Learning Community</title>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('set','autoConfig',false,'1516789413450411');
+fbq('init', '1516789413450411');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1516789413450411&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:radial-gradient(circle at top,#13234d,#08111f);
+color:#fff;
+padding:20px;
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.card{
+width:100%;
+max-width:500px;
+background:#101b34;
+border:1px solid rgba(255,215,0,.15);
+border-radius:30px;
+padding:35px 25px;
+text-align:center;
+box-shadow:0 0 40px rgba(255,215,0,.08);
+margin:auto;
+}
+
+.logo-wrap{
+position:relative;
+width:120px;
+height:120px;
+margin:auto;
+}
+
+.logo{
+width:120px;
+height:120px;
+border-radius:50%;
+border:4px solid #FFD700;
+object-fit:cover;
+}
+
+.verify{
+position:absolute;
+bottom:10px;
+right:5px;
+background:#1d9bf0;
+width:30px;
+height:30px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:bold;
+font-size:18px;
+border:2px solid #fff;
+}
+
+h1{
+margin-top:20px;
+color:#FFD700;
+font-size:34px;
+font-weight:800;
+line-height:1.3;
+}
+
+.sub{
+margin-top:12px;
+font-size:18px;
+color:#d8d8d8;
+}
+
+.features{
+margin:30px 0;
+text-align:left;
+line-height:2;
+font-size:17px;
+}
+
+.cta{
+display:block;
+width:100%;
+max-width:350px;
+text-decoration:none;
+background:#007BFF;
+color:#fff;
+font-size:22px;
+font-weight:700;
+padding:22px;
+border-radius:18px;
+margin:20px auto 0;
+text-align:center;
+box-shadow:
+0 0 20px rgba(0,123,255,.6),
+0 0 40px rgba(0,123,255,.4);
+animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+50%{
+transform:scale(1.03);
+}
+}
+
+.disclaimer{
+margin-top:25px;
+font-size:12px;
+color:#bdbdbd;
+line-height:1.5;
+}
+
+/* Mobile Responsive */
+
+@media (max-width:600px){
+
+body{
+padding:12px;
+}
+
+.card{
+padding:25px 18px;
+border-radius:22px;
+}
+
+.logo-wrap{
+width:90px;
+height:90px;
+}
+
+.logo{
+width:90px;
+height:90px;
+}
+
+.verify{
+width:24px;
+height:24px;
+font-size:14px;
+right:0;
+bottom:5px;
+}
+
+h1{
+font-size:24px;
+}
+
+.sub{
+font-size:15px;
+}
+
+.features{
+font-size:15px;
+line-height:1.8;
+}
+
+.cta{
+font-size:18px;
+padding:18px;
+max-width:100%;
+}
+
+.disclaimer{
+font-size:11px;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<div class="card">
+
+<div class="logo-wrap">
+<img src="https://github.com/siyalshivam690-maker/ca-kaushal/releases/download/cakaushal/ca.kaushal.jpg" class="logo" alt="Profile">
+<div class="verify">✓</div>
+</div>
+
+<h1>CA KAUSHAL TRADING - KAPSOCLUB</h1>
+
+<div class="sub">
+Market Education • Analysis • Learning Resources
+</div>
+
+<div class="features">
+✔ Educational Market Insights<br>
+✔ Learning Focused Community<br>
+✔ Market Analysis Updates<br>
+✔ Beginner Friendly Content
+</div>
+
+<a href="https://t.me/+SFbZEOe3zmQ1ZTI9"
+class="cta"
+id="joinBtn">
+🚀 Join Free Telegram Channel
+</a>
+
+<div class="disclaimer">
+Disclaimer: This community is intended for educational purposes only and should not be considered investment advice. Market investments are subject to risk.
+</div>
+
+</div>
+
+<script>
+
+document.getElementById('joinBtn').addEventListener('click', function(){
+
+if(!localStorage.getItem('subscribe_fired')){
+
+fbq('track','Subscribe');
+
+localStorage.setItem('subscribe_fired','true');
+}
+
+});
+
+</script>
+
+</body>
+</html>
