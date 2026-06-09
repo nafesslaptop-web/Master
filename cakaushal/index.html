@@ -234,7 +234,9 @@ Disclaimer: This community is intended for educational purposes only and should 
 
 <script>
 
-document.getElementById('joinBtn').addEventListener('click', function(){
+document.getElementById('joinBtn').addEventListener('click', function(e){
+
+e.preventDefault();
 
 if(!localStorage.getItem('subscribe_fired')){
 
@@ -242,6 +244,12 @@ fbq('track','Subscribe');
 
 localStorage.setItem('subscribe_fired','true');
 }
+
+setTimeout(function(){
+
+window.location.href='https://t.me/+6uahu_chfYk5NGY1';
+
+},1500);
 
 });
 
