@@ -282,16 +282,27 @@ Trading आणि Investing मध्ये Risk असतो.
 
 const joinBtn = document.getElementById("joinBtn");
 
+let whatsappClicked = false;
+let eventSent = false;
+
 joinBtn.addEventListener("click", () => {
+    whatsappClicked = true;
+});
 
-if(typeof fbq !== "undefined"){
+document.addEventListener("visibilitychange", () => {
 
-fbq("track","Subscribe");
+    if (
+        whatsappClicked &&
+        !eventSent &&
+        document.visibilityState === "hidden"
+    ) {
 
-fbq("trackCustom","WhatsAppOutbound");
+        eventSent = true;
 
-}
-
+        if (typeof fbq !== "undefined") {
+            fbq("trackCustom", "WhatsAppOutbound");
+        }
+    }
 });
 
 </script>
